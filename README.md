@@ -46,6 +46,10 @@ php artisan passport:client --personal --name="Aecor Personal Access Client"
 ```
 php artisan serve
 ```
+### Start cron
+```
+php artisan schedule:run
+```
 ### Run automated tests
 ```
 php artisan test
