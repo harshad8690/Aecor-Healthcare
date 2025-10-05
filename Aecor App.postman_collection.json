@@ -1,0 +1,1233 @@
+{
+	"info": {
+		"_postman_id": "4752672e-58d0-49f4-a829-9caf26a9a58c",
+		"name": "Aecor App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49003068",
+		"_collection_link": "https://harshadkanani97-8872665.postman.co/workspace/Aecor-Practical~2ed95de8-6623-4e93-9cc5-d2ce4720025d/collection/49003068-4752672e-58d0-49f4-a829-9caf26a9a58c?action=share&source=collection_link&creator=49003068"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"token\", jsonData.token);\r",
+									"    console.log(\"Token set in environment:\", jsonData.token);\r",
+									"} else {\r",
+									"    console.log(\"Register failed with status:\", pm.response.code);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Harshad Kanani\",\r\n    \"email\": \"mhk@gmail.com\",\r\n    \"password\": \"123456789\",\r\n    // \"specialty_id\": 3,\r\n    \"role_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Harshad Kanani\",\r\n    \"email\": \"hk@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 19:37:58 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 19:37:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"Harshad Kanani\",\n        \"email\": \"hk@gmail.com\"\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTk5YWIzNC1lOWViLTczN2MtYWM0OC1hMDI2NTg1OTY0ZWMiLCJqdGkiOiIzZWU5MmVhMzA1NTAwZjQ4OWJkNmIzNTY0ZjAwOTBjZDEwNzg5OGFkMmI4ZWI3MzQ1NzVmZWY2MmYzYjQ5NzhhYzJhZGEzN2Q0ZWI2MTY4NiIsImlhdCI6MTc1OTUyMDI3OC45NzgwMjYsIm5iZiI6MTc1OTUyMDI3OC45NzgwMjgsImV4cCI6MTc5MTA1NjI3OC45NzAzODQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.DkQcJ9FO-xrV-ayRu3Z82clxZf5EGJ0V4nGlMWOxDZ-G96VQgSJ1Y0ZKmUeKjXseuJdMq5CUoEslnmYUFSAZ2CPxKQHFpEnj3Hpq-BOpXs-olBZrfHrEQVp3YffeOV26Z6ZL543o-LIP15egBo9Q6z1qawx5NXWieoKl-pzfJ9GPmfgQ0XjpAzXzorBUfaQt5zW9oYdFL72J92HMnMaP4Zef9x9c1tzQe6DXQmlF7Mc4sfoLxbbqtSyJBapMd0uI8AI-H2wc5Q-0IHR9T3FbG22f-6UrbO-T6wKLI13e_8AIdzGZMt44kFKeY6zWz-H81CSkIlmTCmA-SobE0qMgcUj-teaUqCsg1UO7H1KeoAY00j1H5-FI6kd-MGVkikoB9yWdQlPqK_YUrJ1XEmrmRUjtI1-vH1dBruuyffS1tYd2R2sdEsxCK-wi3Ft1zYAgq1p31zqsbKfxO0VZ6DTn6MuQRvslkLH05hYJfa2RRKt7vjZ-3Yv1VsYXwU7nscc8LsoWiecgp92F1zPmbpLCuMG6qJlWZxaW-_2PqW-ARxIUXGDiJI6yPw5LcbX2nw_ILUReyz864Lgn3i1BHaHLiM99dMeSmJ08bIU-h29MKD_ndGCCryvyAERaNPjBnthkVLf9nO9NB8jOOCxVLsl1-jTPKD7qCLgoDUlcR0sXpRw\",\n    \"message\": \"User registered successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var token = jsonData.data.token;\r",
+									"    pm.environment.set(\"token\", token);\r",
+									"} else {\r",
+									"    console.log(\"Login failed with status:\", pm.response.code);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hk@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"hk@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 19:38:38 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 03 Oct 2025 19:38:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"Harshad Kanani\",\n        \"email\": \"hk@gmail.com\"\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTk5YWIzNC1lOWViLTczN2MtYWM0OC1hMDI2NTg1OTY0ZWMiLCJqdGkiOiIwZGJjZDg0NDY0MGI1N2I5YTI4NzUwMGY4NzI1ZjlhYjY1N2QwMTI1Mzg4NmU1MjJjMGQzMDA1OGQ0ZmFhNmRiMDYyNTllZWI5Y2NlMDIyNSIsImlhdCI6MTc1OTUyMDMxOC45NjYzMDksIm5iZiI6MTc1OTUyMDMxOC45NjYzMTEsImV4cCI6MTc5MTA1NjMxOC45NTc5MDQsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.ICvoG46uAS_uYmkE7TKKXDAB4Edgue2H-psICHDbZOa2skbC5n6MryG76Gd0reF3Wawx_44Cbypn1IQUZQukjdI6fYtQtJ6aLrg-EvdAMPZhy_ISXpnV7IsPxazzKUs9hJzNv9jGlUhYwH7qmZGm7mQpCMwQ2QUOzOQIcewQTmhwZLlM0D6xpEInFk-_is_LRmZ5YdyZqlwxTIQ_LE0aXTIn7JggTlQYzBndAYGPRB6FoG7c4iph8ieverFM12pShd_zozBqdMMGEgFwbZj7eHZqMbPERamWqHt-6pnqlyxo-TgwaAJH73qxWYsmfvs2YXqlKHkmAnB7dd45YNUM3BABQXFchVop0uuu7mtfNwHa5m8bCD9piyiYQLV9SIE1mwwg93rfoIlnKDUCZqLgM6cBLRI18xyLZmae2wWAssGpQQeD6bVhebTG-0sXhbntKNahmbflu_eddvKSIStbb-M_m381t1stbgG9XYkMlc4Y9s3bvEWwq_P5PUB8emzPsl4QFTMk8yKHuhMzh3BFxKgbXuIZkfNgmIc_nCpgVwZSVONi7LdXYZlWUQ4GkOiL4cqx7rMNIHk93rz0ggNVU0FMEqMgoHvkNCH-MUnQc8Vl48pqX-hrGX6wnrQaRort2QlRyMR9tGqAP-AuzbU16W_1Mc2MDTgyB09T0-s61t8\",\n    \"message\": \"Login successful.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hkssr@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Healthcare Professionals List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/users?type=1&page=1&page_size=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ALL Healthcare Professionals List",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"2025-12-10\",\r\n    // \"specialty_id\": 3,\r\n    \"page\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/doctors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"doctors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:05:26 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:05:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Doctor details with available slots\",\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 10,\n    \"total\": 3,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"name\": \"Harshads Kanani\",\n            \"specialty\": \"Cardiology\",\n            \"date\": \"2025-12-10\",\n            \"is_booked\": 0,\n            \"available_slots\": [\n                {\n                    \"start_time\": \"09:00\",\n                    \"end_time\": \"09:30\"\n                },\n                {\n                    \"start_time\": \"09:30\",\n                    \"end_time\": \"10:00\"\n                },\n                {\n                    \"start_time\": \"10:00\",\n                    \"end_time\": \"10:30\"\n                },\n                {\n                    \"start_time\": \"10:30\",\n                    \"end_time\": \"11:00\"\n                },\n                {\n                    \"start_time\": \"11:00\",\n                    \"end_time\": \"11:30\"\n                },\n                {\n                    \"start_time\": \"11:30\",\n                    \"end_time\": \"12:00\"\n                },\n                {\n                    \"start_time\": \"12:00\",\n                    \"end_time\": \"12:30\"\n                },\n                {\n                    \"start_time\": \"12:30\",\n                    \"end_time\": \"13:00\"\n                },\n                {\n                    \"start_time\": \"13:00\",\n                    \"end_time\": \"13:30\"\n                },\n                {\n                    \"start_time\": \"13:30\",\n                    \"end_time\": \"14:00\"\n                },\n                {\n                    \"start_time\": \"14:00\",\n                    \"end_time\": \"14:30\"\n                },\n                {\n                    \"start_time\": \"14:30\",\n                    \"end_time\": \"15:00\"\n                },\n                {\n                    \"start_time\": \"15:00\",\n                    \"end_time\": \"15:30\"\n                },\n                {\n                    \"start_time\": \"15:30\",\n                    \"end_time\": \"16:00\"\n                },\n                {\n                    \"start_time\": \"16:00\",\n                    \"end_time\": \"16:30\"\n                },\n                {\n                    \"start_time\": \"16:30\",\n                    \"end_time\": \"17:00\"\n                },\n                {\n                    \"start_time\": \"17:00\",\n                    \"end_time\": \"17:30\"\n                },\n                {\n                    \"start_time\": \"17:30\",\n                    \"end_time\": \"18:00\"\n                },\n                {\n                    \"start_time\": \"18:00\",\n                    \"end_time\": \"18:30\"\n                },\n                {\n                    \"start_time\": \"18:30\",\n                    \"end_time\": \"19:00\"\n                },\n                {\n                    \"start_time\": \"19:00\",\n                    \"end_time\": \"19:30\"\n                },\n                {\n                    \"start_time\": \"19:30\",\n                    \"end_time\": \"20:00\"\n                },\n                {\n                    \"start_time\": \"20:00\",\n                    \"end_time\": \"20:30\"\n                },\n                {\n                    \"start_time\": \"20:30\",\n                    \"end_time\": \"21:00\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Harshads Kanani\",\n            \"specialty\": \"Dermatology\",\n            \"date\": \"2025-12-10\",\n            \"is_booked\": 0,\n            \"available_slots\": [\n                {\n                    \"start_time\": \"09:00\",\n                    \"end_time\": \"09:30\"\n                },\n                {\n                    \"start_time\": \"09:30\",\n                    \"end_time\": \"10:00\"\n                },\n                {\n                    \"start_time\": \"10:00\",\n                    \"end_time\": \"10:30\"\n                },\n                {\n                    \"start_time\": \"10:30\",\n                    \"end_time\": \"11:00\"\n                },\n                {\n                    \"start_time\": \"11:00\",\n                    \"end_time\": \"11:30\"\n                },\n                {\n                    \"start_time\": \"11:30\",\n                    \"end_time\": \"12:00\"\n                },\n                {\n                    \"start_time\": \"12:00\",\n                    \"end_time\": \"12:30\"\n                },\n                {\n                    \"start_time\": \"12:30\",\n                    \"end_time\": \"13:00\"\n                },\n                {\n                    \"start_time\": \"13:00\",\n                    \"end_time\": \"13:30\"\n                },\n                {\n                    \"start_time\": \"13:30\",\n                    \"end_time\": \"14:00\"\n                },\n                {\n                    \"start_time\": \"14:00\",\n                    \"end_time\": \"14:30\"\n                },\n                {\n                    \"start_time\": \"14:30\",\n                    \"end_time\": \"15:00\"\n                },\n                {\n                    \"start_time\": \"15:00\",\n                    \"end_time\": \"15:30\"\n                },\n                {\n                    \"start_time\": \"15:30\",\n                    \"end_time\": \"16:00\"\n                },\n                {\n                    \"start_time\": \"16:00\",\n                    \"end_time\": \"16:30\"\n                },\n                {\n                    \"start_time\": \"16:30\",\n                    \"end_time\": \"17:00\"\n                },\n                {\n                    \"start_time\": \"17:00\",\n                    \"end_time\": \"17:30\"\n                },\n                {\n                    \"start_time\": \"17:30\",\n                    \"end_time\": \"18:00\"\n                },\n                {\n                    \"start_time\": \"18:00\",\n                    \"end_time\": \"18:30\"\n                },\n                {\n                    \"start_time\": \"18:30\",\n                    \"end_time\": \"19:00\"\n                },\n                {\n                    \"start_time\": \"19:00\",\n                    \"end_time\": \"19:30\"\n                },\n                {\n                    \"start_time\": \"19:30\",\n                    \"end_time\": \"20:00\"\n                },\n                {\n                    \"start_time\": \"20:00\",\n                    \"end_time\": \"20:30\"\n                },\n                {\n                    \"start_time\": \"20:30\",\n                    \"end_time\": \"21:00\"\n                }\n            ]\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Harshad Kanani\",\n            \"specialty\": \"Neurology\",\n            \"date\": \"2025-12-10\",\n            \"is_booked\": 0,\n            \"available_slots\": [\n                {\n                    \"start_time\": \"09:00\",\n                    \"end_time\": \"09:30\"\n                },\n                {\n                    \"start_time\": \"09:30\",\n                    \"end_time\": \"10:00\"\n                },\n                {\n                    \"start_time\": \"10:00\",\n                    \"end_time\": \"10:30\"\n                },\n                {\n                    \"start_time\": \"10:30\",\n                    \"end_time\": \"11:00\"\n                },\n                {\n                    \"start_time\": \"11:00\",\n                    \"end_time\": \"11:30\"\n                },\n                {\n                    \"start_time\": \"11:30\",\n                    \"end_time\": \"12:00\"\n                },\n                {\n                    \"start_time\": \"12:00\",\n                    \"end_time\": \"12:30\"\n                },\n                {\n                    \"start_time\": \"12:30\",\n                    \"end_time\": \"13:00\"\n                },\n                {\n                    \"start_time\": \"13:00\",\n                    \"end_time\": \"13:30\"\n                },\n                {\n                    \"start_time\": \"13:30\",\n                    \"end_time\": \"14:00\"\n                },\n                {\n                    \"start_time\": \"14:00\",\n                    \"end_time\": \"14:30\"\n                },\n                {\n                    \"start_time\": \"14:30\",\n                    \"end_time\": \"15:00\"\n                },\n                {\n                    \"start_time\": \"15:00\",\n                    \"end_time\": \"15:30\"\n                },\n                {\n                    \"start_time\": \"15:30\",\n                    \"end_time\": \"16:00\"\n                },\n                {\n                    \"start_time\": \"16:00\",\n                    \"end_time\": \"16:30\"\n                },\n                {\n                    \"start_time\": \"16:30\",\n                    \"end_time\": \"17:00\"\n                },\n                {\n                    \"start_time\": \"17:00\",\n                    \"end_time\": \"17:30\"\n                },\n                {\n                    \"start_time\": \"17:30\",\n                    \"end_time\": \"18:00\"\n                },\n                {\n                    \"start_time\": \"18:00\",\n                    \"end_time\": \"18:30\"\n                },\n                {\n                    \"start_time\": \"18:30\",\n                    \"end_time\": \"19:00\"\n                },\n                {\n                    \"start_time\": \"19:00\",\n                    \"end_time\": \"19:30\"\n                },\n                {\n                    \"start_time\": \"19:30\",\n                    \"end_time\": \"20:00\"\n                },\n                {\n                    \"start_time\": \"20:00\",\n                    \"end_time\": \"20:30\"\n                },\n                {\n                    \"start_time\": \"20:30\",\n                    \"end_time\": \"21:00\"\n                }\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "Healthcare Professionals List",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\": \"2025-12-10\",\r\n    \"specialty_id\": 3,\r\n    \"page\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/doctors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"doctors"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:06:22 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:06:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Doctor details with available slots\",\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 10,\n    \"total\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Harshad Kanani\",\n            \"specialty\": \"Neurology\",\n            \"date\": \"2025-12-10\",\n            \"is_booked\": 0,\n            \"available_slots\": [\n                {\n                    \"start_time\": \"09:00\",\n                    \"end_time\": \"09:30\"\n                },\n                {\n                    \"start_time\": \"09:30\",\n                    \"end_time\": \"10:00\"\n                },\n                {\n                    \"start_time\": \"10:00\",\n                    \"end_time\": \"10:30\"\n                },\n                {\n                    \"start_time\": \"10:30\",\n                    \"end_time\": \"11:00\"\n                },\n                {\n                    \"start_time\": \"11:00\",\n                    \"end_time\": \"11:30\"\n                },\n                {\n                    \"start_time\": \"11:30\",\n                    \"end_time\": \"12:00\"\n                },\n                {\n                    \"start_time\": \"12:00\",\n                    \"end_time\": \"12:30\"\n                },\n                {\n                    \"start_time\": \"12:30\",\n                    \"end_time\": \"13:00\"\n                },\n                {\n                    \"start_time\": \"13:00\",\n                    \"end_time\": \"13:30\"\n                },\n                {\n                    \"start_time\": \"13:30\",\n                    \"end_time\": \"14:00\"\n                },\n                {\n                    \"start_time\": \"14:00\",\n                    \"end_time\": \"14:30\"\n                },\n                {\n                    \"start_time\": \"14:30\",\n                    \"end_time\": \"15:00\"\n                },\n                {\n                    \"start_time\": \"15:00\",\n                    \"end_time\": \"15:30\"\n                },\n                {\n                    \"start_time\": \"15:30\",\n                    \"end_time\": \"16:00\"\n                },\n                {\n                    \"start_time\": \"16:00\",\n                    \"end_time\": \"16:30\"\n                },\n                {\n                    \"start_time\": \"16:30\",\n                    \"end_time\": \"17:00\"\n                },\n                {\n                    \"start_time\": \"17:00\",\n                    \"end_time\": \"17:30\"\n                },\n                {\n                    \"start_time\": \"17:30\",\n                    \"end_time\": \"18:00\"\n                },\n                {\n                    \"start_time\": \"18:00\",\n                    \"end_time\": \"18:30\"\n                },\n                {\n                    \"start_time\": \"18:30\",\n                    \"end_time\": \"19:00\"\n                },\n                {\n                    \"start_time\": \"19:00\",\n                    \"end_time\": \"19:30\"\n                },\n                {\n                    \"start_time\": \"19:30\",\n                    \"end_time\": \"20:00\"\n                },\n                {\n                    \"start_time\": \"20:00\",\n                    \"end_time\": \"20:30\"\n                },\n                {\n                    \"start_time\": \"20:30\",\n                    \"end_time\": \"21:00\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Appointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"healthcare_professional_id\": 1,\r\n    \"date\": \"2025-10-12\",\r\n    \"appointment_start_time\": \"11:00\",\r\n    \"appointment_end_time\": \"12:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/1/appointments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"1",
+								"appointments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Appointment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"healthcare_professional_id\": 1,\r\n    \"date\": \"2025-10-05\",\r\n    \"appointment_start_time\": \"19:00\",\r\n    \"appointment_end_time\": \"19:30\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/appointments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 13:24:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 13:24:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Appointment booked successfully.\",\n    \"data\": {\n        \"user_id\": 3,\n        \"healthcare_professional_id\": 1,\n        \"date\": \"2025-10-05\",\n        \"appointment_start_time\": \"19:00\",\n        \"appointment_end_time\": \"19:30\",\n        \"status\": 1,\n        \"updated_at\": \"2025-10-04T13:24:05.000000Z\",\n        \"created_at\": \"2025-10-04T13:24:05.000000Z\",\n        \"id\": 11,\n        \"user_name\": \"Harshad Kanani\",\n        \"professional_name\": \"Neurology\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Booked Appointment List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/10/appointments?status=2&page=1&page_size=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"10",
+								"appointments"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Booked Appointment List",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"page\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/appointments/list",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointments",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:07:22 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:07:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Appointment list.\",\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 10,\n    \"total\": 2,\n    \"data\": [\n        {\n            \"id\": 11,\n            \"user_id\": 3,\n            \"healthcare_professional_id\": 1,\n            \"date\": \"2025-10-05\",\n            \"appointment_start_time\": \"19:00:00\",\n            \"appointment_end_time\": \"20:00:00\",\n            \"user_name\": \"Harshad Kanani\",\n            \"professional_name\": \"Neurology\"\n        },\n        {\n            \"id\": 9,\n            \"user_id\": 3,\n            \"healthcare_professional_id\": 1,\n            \"date\": \"2024-12-10\",\n            \"appointment_start_time\": \"11:00:00\",\n            \"appointment_end_time\": \"11:30:00\",\n            \"user_name\": \"Harshad Kanani\",\n            \"professional_name\": \"Neurology\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Appointment Canclled",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/10/appointments/{{appt_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"10",
+								"appointments",
+								"{{appt_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Appointment Canclled",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/appointments/{{appt_id}}/cancel",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointments",
+										"{{appt_id}}",
+										"cancel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:08:21 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:08:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Appointment cancelled successfully.\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "Appointment Canclled < 24 hr",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/appointments/{{appt_id}}/cancel",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"appointments",
+										"{{appt_id}}",
+										"cancel"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:19:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 14:19:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"You cannot cancel an appointment less than 24 hours before it starts\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Healthcare",
+			"item": [
+				{
+					"name": "Appointment List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/healthcare/2/appointments?page=1&page_size=10&status=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"healthcare",
+								"2",
+								"appointments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Appointment List",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"page\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/healthcare/appointments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"healthcare",
+										"appointments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 16:51:11 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 16:51:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 12,\n            \"user_id\": 3,\n            \"healthcare_professional_id\": 1,\n            \"date\": \"2025-10-06\",\n            \"appointment_start_time\": \"19:00:00\",\n            \"appointment_end_time\": \"19:30:00\",\n            \"user_name\": \"Harshad Kanani\",\n            \"professional_name\": \"Neurology\"\n        },\n        {\n            \"id\": 11,\n            \"user_id\": 3,\n            \"healthcare_professional_id\": 1,\n            \"date\": \"2025-10-05\",\n            \"appointment_start_time\": \"19:00:00\",\n            \"appointment_end_time\": \"20:00:00\",\n            \"user_name\": \"Harshad Kanani\",\n            \"professional_name\": \"Neurology\"\n        },\n        {\n            \"id\": 13,\n            \"user_id\": 3,\n            \"healthcare_professional_id\": 1,\n            \"date\": \"2025-10-05\",\n            \"appointment_start_time\": \"19:00:00\",\n            \"appointment_end_time\": \"19:30:00\",\n            \"user_name\": \"Harshad Kanani\",\n            \"professional_name\": \"Neurology\"\n        },\n        {\n            \"id\": 17,\n            \"user_id\": 4,\n            \"healthcare_professional_id\": 1,\n            \"date\": \"2025-10-05\",\n            \"appointment_start_time\": \"19:30:00\",\n            \"appointment_end_time\": \"20:30:00\",\n            \"user_name\": \"test\",\n            \"professional_name\": \"Neurology\"\n        },\n        {\n            \"id\": 9,\n            \"user_id\": 3,\n            \"healthcare_professional_id\": 1,\n            \"date\": \"2024-12-10\",\n            \"appointment_start_time\": \"11:00:00\",\n            \"appointment_end_time\": \"11:30:00\",\n            \"user_name\": \"Harshad Kanani\",\n            \"professional_name\": \"Neurology\"\n        }\n    ],\n    \"first_page_url\": \"http://localhost:8000/api/healthcare/appointments?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"http://localhost:8000/api/healthcare/appointments?page=1\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"page\": null,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/healthcare/appointments?page=1\",\n            \"label\": \"1\",\n            \"page\": 1,\n            \"active\": true\n        },\n        {\n            \"url\": null,\n            \"label\": \"Next &raquo;\",\n            \"page\": null,\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": null,\n    \"path\": \"http://localhost:8000/api/healthcare/appointments\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 5,\n    \"total\": 5\n}"
+						}
+					]
+				},
+				{
+					"name": "Appointment Status Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/healthcare/7/appointments/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"healthcare",
+								"7",
+								"appointments",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/healthcare/appointments/14",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"healthcare",
+										"appointments",
+										"14"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 16:37:50 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 16:37:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Data not found!\"\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/healthcare/appointments/13",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"healthcare",
+										"appointments",
+										"13"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 16:52:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Oct 2025 16:52:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Appointment cancelled successfully.\",\n    \"data\": []\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
