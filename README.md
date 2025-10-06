@@ -4,8 +4,8 @@
 
 ### Clone the repository
 ```
-git clone git@github.com:harshad8690/aecor_backend.git
-cd aecor_backend
+git clone https://github.com/harshad8690/Aecor-Healthcare.git
+cd Aecor-Healthcare
 ```
 ### Install dependencies
 ```
